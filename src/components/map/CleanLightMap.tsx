@@ -142,7 +142,7 @@ export const CleanLightMap: React.FC<CleanLightMapProps> = ({
         iconAnchor: [12, 24]
       });
 
-      L.marker(lastCoord, { icon: destIcon }).addTo(markersGroup);
+      L.marker(lastCoord!, { icon: destIcon }).addTo(markersGroup);
 
       // Auto fit bounds smoothly
       const bounds = L.latLngBounds(selectedRoute.coordinates);
