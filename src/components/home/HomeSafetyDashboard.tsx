@@ -75,8 +75,9 @@ export const HomeSafetyDashboard: React.FC = () => {
     e.preventDefault();
     if (!destInput.trim()) return;
 
-    if (searchResults.length > 0) {
-      handleSelectGeocodedPlace(searchResults[0]);
+    const firstResult = searchResults[0];
+    if (firstResult) {
+      handleSelectGeocodedPlace(firstResult);
     } else {
       const fallbackDest: LocationCoordinate = {
         lat: currentLocation.lat + 0.012,

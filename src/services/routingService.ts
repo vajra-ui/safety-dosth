@@ -223,24 +223,24 @@ export class RoutingService {
         maneuver: 'depart',
         distanceMeters: 300,
         streetName: 'Main Road',
-        lat: coords[0][0],
-        lng: coords[0][1]
+        lat: coords[0]![0]!,
+        lng: coords[0]![1]!
       },
       {
         text: 'Follow lit commercial boulevard past Police outpost',
         maneuver: 'straight',
         distanceMeters: 750,
         streetName: 'Commercial Boulevard',
-        lat: coords[1][0],
-        lng: coords[1][1]
+        lat: coords[1]![0]!,
+        lng: coords[1]![1]!
       },
       {
         text: `Arrive safely at ${destination.name || 'Destination'}`,
         maneuver: 'arrive',
         distanceMeters: 200,
         streetName: 'Destination Approach',
-        lat: coords[coords.length - 1][0],
-        lng: coords[coords.length - 1][1]
+        lat: coords[coords.length - 1]![0]!,
+        lng: coords[coords.length - 1]![1]!
       }
     ];
   }

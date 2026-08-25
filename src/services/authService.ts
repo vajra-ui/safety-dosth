@@ -73,7 +73,7 @@ class AuthService {
 
     if (!existing) {
       // If logging in for the first time, auto-create account for seamless UX
-      return this.signUp(email, _password, email.split('@')[0], '+91 98765 43210');
+      return this.signUp(email, _password, email.split('@')[0] ?? email, '+91 98765 43210');
     }
 
     this.currentUser = existing;
