@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedCircleRouteImport } from './routes/_authenticated/circle'
 import { Route as AuthenticatedHomeRouteImport } from './routes/_authenticated/home'
 import { Route as AuthenticatedPlacesRouteImport } from './routes/_authenticated/places'
+import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
 import { Route as AuthenticatedNavigateIdRouteImport } from './routes/_authenticated/navigate.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -46,6 +47,11 @@ const AuthenticatedPlacesRoute = AuthenticatedPlacesRouteImport.update({
   path: '/places',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedNavigateIdRoute = AuthenticatedNavigateIdRouteImport.update({
   id: '/navigate/$id',
   path: '/navigate/$id',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/circle': typeof AuthenticatedCircleRoute
   '/home': typeof AuthenticatedHomeRoute
   '/places': typeof AuthenticatedPlacesRoute
+  '/reports': typeof AuthenticatedReportsRoute
   '/navigate/$id': typeof AuthenticatedNavigateIdRoute
 }
 export interface FileRoutesByTo {
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/circle': typeof AuthenticatedCircleRoute
   '/home': typeof AuthenticatedHomeRoute
   '/places': typeof AuthenticatedPlacesRoute
+  '/reports': typeof AuthenticatedReportsRoute
   '/navigate/$id': typeof AuthenticatedNavigateIdRoute
 }
 export interface FileRoutesById {
@@ -76,13 +84,28 @@ export interface FileRoutesById {
   '/_authenticated/circle': typeof AuthenticatedCircleRoute
   '/_authenticated/home': typeof AuthenticatedHomeRoute
   '/_authenticated/places': typeof AuthenticatedPlacesRoute
+  '/_authenticated/reports': typeof AuthenticatedReportsRoute
   '/_authenticated/navigate/$id': typeof AuthenticatedNavigateIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth' | '/circle' | '/home' | '/places' | '/navigate/$id'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/circle'
+    | '/home'
+    | '/places'
+    | '/reports'
+    | '/navigate/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth' | '/circle' | '/home' | '/places' | '/navigate/$id'
+  to:
+    | '/'
+    | '/auth'
+    | '/circle'
+    | '/home'
+    | '/places'
+    | '/reports'
+    | '/navigate/$id'
   id:
     | '__root__'
     | '/'
@@ -91,6 +114,7 @@ export interface FileRouteTypes {
     | '/_authenticated/circle'
     | '/_authenticated/home'
     | '/_authenticated/places'
+    | '/_authenticated/reports'
     | '/_authenticated/navigate/$id'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +168,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPlacesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/reports': {
+      id: '/_authenticated/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof AuthenticatedReportsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/navigate/$id': {
       id: '/_authenticated/navigate/$id'
       path: '/navigate/$id'
@@ -158,6 +189,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCircleRoute: typeof AuthenticatedCircleRoute
   AuthenticatedHomeRoute: typeof AuthenticatedHomeRoute
   AuthenticatedPlacesRoute: typeof AuthenticatedPlacesRoute
+  AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
   AuthenticatedNavigateIdRoute: typeof AuthenticatedNavigateIdRoute
 }
 
@@ -165,6 +197,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCircleRoute: AuthenticatedCircleRoute,
   AuthenticatedHomeRoute: AuthenticatedHomeRoute,
   AuthenticatedPlacesRoute: AuthenticatedPlacesRoute,
+  AuthenticatedReportsRoute: AuthenticatedReportsRoute,
   AuthenticatedNavigateIdRoute: AuthenticatedNavigateIdRoute,
 }
 
