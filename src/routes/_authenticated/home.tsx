@@ -208,7 +208,7 @@ function HomePage() {
         .single();
       if (error) throw error;
       sessionStorage.setItem(`sd-route-${data.id}`, JSON.stringify(route));
-      navigate({ to: "/route" });
+      navigate({ to: "/home" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't start the journey.");
     } finally {

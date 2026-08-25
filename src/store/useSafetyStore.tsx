@@ -296,7 +296,7 @@ export const SafetyProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         return {
           ...prev,
           currentStepIndex: next,
-          currentCoordinate: { lat: coord[0], lng: coord[1] },
+          currentCoordinate: { lat: coord![0]!, lng: coord![1]! },
           distanceRemainingKm: remKm,
           timeRemainingMinutes: remMin
         };
