@@ -62,8 +62,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     updateUserProfile({
       name: guest.name,
       phone: guest.phone,
-      bloodGroup: guest.bloodGroup,
-      emergencyNotes: guest.emergencyNotes
+      bloodGroup: guest.bloodGroup ?? 'O+',
+      emergencyNotes: guest.emergencyNotes ?? ''
     });
     onClose();
   };

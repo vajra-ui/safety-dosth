@@ -224,9 +224,9 @@ export const SafetyProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       isPaused: false,
       selectedRoute: chosen,
       startLocation: currentLocation,
-      destinationLocation: selectedDestination || { lat: chosen.coordinates[chosen.coordinates.length - 1][0], lng: chosen.coordinates[chosen.coordinates.length - 1][1], name: 'Destination' },
+      destinationLocation: selectedDestination || { lat: chosen.coordinates[chosen.coordinates.length - 1]![0]!, lng: chosen.coordinates[chosen.coordinates.length - 1]![1]!, name: 'Destination' },
       currentStepIndex: 0,
-      currentCoordinate: { lat: chosen.coordinates[0][0], lng: chosen.coordinates[0][1] },
+      currentCoordinate: { lat: chosen.coordinates[0]![0]!, lng: chosen.coordinates[0]![1]! },
       distanceRemainingKm: chosen.distanceKm,
       timeRemainingMinutes: chosen.durationMinutes,
       averageSpeedKmh: 15,
@@ -296,7 +296,7 @@ export const SafetyProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         return {
           ...prev,
           currentStepIndex: next,
-          currentCoordinate: { lat: coord[0], lng: coord[1] },
+          currentCoordinate: { lat: coord![0]!, lng: coord![1]! },
           distanceRemainingKm: remKm,
           timeRemainingMinutes: remMin
         };

@@ -1,14 +1,12 @@
 import type { ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Compass, MapPin, ShieldAlert, Users, Settings } from "lucide-react";
+import { Compass, MapPin, Users } from "lucide-react";
 import { useOnlineStatus } from "@/hooks/useOnlineStatus";
 
 const TABS = [
   { to: "/home", label: "Navigate", icon: Compass },
   { to: "/places", label: "Safe places", icon: MapPin },
-  { to: "/reports", label: "Community", icon: ShieldAlert },
   { to: "/circle", label: "Circle", icon: Users },
-  { to: "/settings", label: "Privacy", icon: Settings },
 ] as const;
 
 export function AppShell({
